@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!--Cotización-->
+<Cotizacion>
+  <TB_DatosGenerales>
+    <NumeroPoliza>Ejemplo Agrupada Sismo</NumeroPoliza>
+    <TipoPoliza>2</TipoPoliza>
+    <FechaInicio>2021-01-01T00:00:00</FechaInicio>
+    <FechaFin>2023-01-01T00:00:00</FechaFin>
+    <Ramo>SISMO</Ramo>
+  </TB_DatosGenerales>
+  <TB_Capas>
+    <NumeroPoliza>Ejemplo Agrupada Sismo</NumeroPoliza>
+    <NumeroCapa>Deducible</NumeroCapa>
+    <LimiteMaximo>200000</LimiteMaximo>
+</TB_Capas>
+  <TB_Capas>
+    <NumeroPoliza>Ejemplo Agrupada Sismo</NumeroPoliza>
+    <NumeroCapa>Capa 1</NumeroCapa>
+    <Retencion>20</Retencion>
+    <LimiteMaximo>5000000</LimiteMaximo>
+    <Coaseguro>10</Coaseguro>
+</TB_Capas>
+  <TB_Incisos>
+    <NUM_REGISTRO>1</NUM_REGISTRO>
+    <NUM_POLIZA>Ejemplo Agrupada Sismo</NUM_POLIZA>
+    <RAMO>SISMO</RAMO>
+    <INM_VALOR_ASEGURABLE>4000000</INM_VALOR_ASEGURABLE>
+    <CONT_VALOR_ASEGURABLE>3000000</CONT_VALOR_ASEGURABLE>
+    <CONSEC_VALOR_ASEGURABLE>2000000</CONSEC_VALOR_ASEGURABLE>
+    <CONVENIO_VALOR_ASEGURABLE>1000000</CONVENIO_VALOR_ASEGURABLE>
+    <CLAVE_PAIS>52</CLAVE_PAIS>
+    <CODIGO_LOCALIZACION>62760</CODIGO_LOCALIZACION>
+    <LONGITUD>-98.87854912</LONGITUD>
+    <LATITUD>18.836506061</LATITUD>
+    <NUM_PISOS>3</NUM_PISOS>
+    <TIPO_CONSTRUCCION>SMex_Marcos_02</TIPO_CONSTRUCCION>
+    <USO_INMUEBLE>2</USO_INMUEBLE>
+    <ANIO_CONSTRUCCION>1985</ANIO_CONSTRUCCION>
+    <COLUMNAS_CORTAS>1</COLUMNAS_CORTAS>
+    <SOBREPESO>0</SOBREPESO>
+    <GOLPETEO>3</GOLPETEO>
+    <ESQUINA>1</ESQUINA>
+    <IRRE_ELEVACION>3</IRRE_ELEVACION>
+    <IRRE_PLANTA>3</IRRE_PLANTA>
+    <HUNDIMIENTOS>1</HUNDIMIENTOS>
+    <DANIOS_PREVIOS>1</DANIOS_PREVIOS>
+    <FUE_REPARADO>0</FUE_REPARADO>
+    <FUE_REFORZADO>1</FUE_REFORZADO>
+    <ANIO_REFUERZO>2000</ANIO_REFUERZO>
+  </TB_Incisos>
+</Cotizacion>
