@@ -27,11 +27,11 @@ Ejemplo de archivo JSON
 	"CutOffDate":"2022-01-20",
 	"Portfolios": [
 		{
-		"FileName": "C:\\ERN\\R_CORE\\EQ_Ind.xml",
+		"FileName": "C:\\ERN\\R_CORE\\EQ_Ind.sqlite",
 		"Type": 1
 		},
 		{
-		"FileName": "C:\\ERN\\R_CORE\\EQ_Col.xml",
+		"FileName": "C:\\ERN\\R_CORE\\EQ_Col.sqlite",
 		"Type": 2
 		}
   	]
@@ -63,7 +63,7 @@ Ejemplo de archivo JSON
 	"CutOffDate":"2022-01-01",
 	"Portfolios": [
 		{
-		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Ind.xml",
+		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Ind.sqlite",
 		"Type": 1
 		}
   	],
@@ -86,7 +86,7 @@ Ejemplo de archivo JSON
 	"CutOffDate":"2022-01-01",
 	"Portfolios": [
 		{
-		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Col.xml",
+		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Col.sqlite",
 		"Type": 2
 		}
   	],
@@ -103,7 +103,7 @@ El sistema R-CORE consta de tres principales procesos, la carga de los portafoli
 
 ## Carga de Portafolios
 
-En este proceso, el sistema cargará cada cartera que se agrego en la lista de "Portfolios", este es el primer proceso que se debe de ejecutar ya que conviertira la cartera a un formato binario y lo almacenará en la ruta de resultados para su posterior lectura en la evaluación.
+En este proceso, el sistema cargará cada cartera que se agrego en la lista de "Portfolios", este es el primer proceso que se debe de ejecutar ya que conviertirá la cartera a un formato binario y lo almacenará en la ruta de resultados para su posterior lectura en la evaluación. El Sistema soporta diferentes formatos de archivos (ACCESS, XML CSV o SQLite databases). Tras una serie de numerosas pruebas, recomendamos ampliamente el uso de SQLite databases ya que tienen un rendimiento de lectura superior a los formatos antes mencionados.
 
 ```sh
 #ProcessType = L -> Carga de la cartera
@@ -141,11 +141,16 @@ R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LS" 1 5
 ```sh
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "L" 1 1 
 #Se deberá de esperar a que finalice el proceso de carga para posteriormente ejecutar el proceso de evaluación
+#En un proceso bash, un ciclo o diferentes consolas/terminales pueden ejecutar simultaneamente los procesos de evalaución de la siguiente forma
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LC" 1 5
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LC" 2 5
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LC" 3 5
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LC" 4 5
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LC" 5 5
 #Se deberá de esperar a que finalicen los procesos de evaluación para ejecutar el proceso de resultados
+
+#Tras finalizar todos los procesos de cálculo será necesario ejecutar el últomo proceso para la Generación de Resultados
 R_Core.exe "C:\ERN\R_CORE\Ejemplos\testInd.json" "LS" 1 5
 ```
+
+Al finalizar todo el ciclo de los procesos, se generarán los diferentes archivos de resultados generados por el Sistema R Plus.
