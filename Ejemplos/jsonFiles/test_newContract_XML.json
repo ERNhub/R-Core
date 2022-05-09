@@ -1,0 +1,14 @@
+{
+  "Perils": "S",
+  "CutOffDate": "2022-03-04",
+  "Portfolios": [
+    {
+      "FileName": "C:\\ERN\\Ejemplos\\EQ_Ind.xml",
+      "Type": 1
+    }
+  ],
+  "ResultsPath": "C:\\ERN\\Ejemplos\\Resultados",
+  "SystemPath": "C:\\ERN\\R-CORE",
+  "Tr": "0,10,20,50,100,200,250,500,1000,1500",
+  "newContract": "C:\\ERN\\Ejemplos\\Resultados.resSisR"
+}

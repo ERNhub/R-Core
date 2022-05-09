@@ -1,8 +1,8 @@
 # R-CORE
 
-Este sistema está basado en el núcleo de cálculo del Sistema R Plus y surge con la finalidad de  distribuir el proceso de cálculo del sistema para optimizar el tiempo de evaluación. Esta aplicación esta basada en .NET 5, por lo que puede ejecutarse en plataformas de Windows y Linux. 
+Este sistema está basado en el núcleo de cálculo del Sistema R Plus y surge con la finalidad de  distribuir el proceso de cálculo del sistema para optimizar el tiempo de evaluación. Esta aplicación está basada en .NET 5, por lo que puede ejecutarse en plataformas de Windows y Linux. 
 
-A continuación se describen las principales caracteristicas, la sintaxis de los parámetros a utilizar y se añaden ejemplos para su ejecución.
+A continuación se describen las principales características, la sintaxis de los parámetros a utilizar y se añaden ejemplos para su ejecución.
 
 
 # Sintaxis R-CORE
@@ -12,7 +12,7 @@ Definición de parámetros
 |---|---|---|
 |Archivo de evaluación|Archivo JSON "{file}"|Ruta del archivo JSON| 
 |Tipo de Proceso |Texto - "L", "LC", "LS", "esc" |"L"=Carga de Portafolios, "LC"=Evaluación, "LS"=Generación de Resultados, "esc"=Evaluación de escenario| 
-|Numero de Proceso|Numérico|1| 
+|Número de Proceso|Numérico|1| 
 |Total de Procesos|Numérico|2| 
 |---|---|---|
 
@@ -45,11 +45,12 @@ Ejemplo de archivo JSON
 |Perils|"S", "SR", "H"|Amenaza -> S=Sismo, SR=Sismo (Regulatorio), H=Hidro| 
 |Cutoff Date|yyyy-MM-dd|Fecha de Corte |
 |Portfolios|["{Filename, Type}"]| Lista de Carteras {Type -> 1 = Independiente, 2 = Colectiva}|
-|Results Path|"{path}"|Ruta donde se almacenaran los resultados|
+|Results Path|"{path}"|Ruta donde se almacenarán los resultados|
 |SystemPath|"{path}"| Ruta del Sistema |
 |Tr|Cadena de texto separada por comas|Lista de periodos de retorno - > "0,50,100,200,500,1000,1500,2000,2500,4500"|
 |Scenario|"{file}"|Ruta del archivo del Evento (formato zip) |
-|extraFields|[]|Arreglo de campos que se extraeran de la cartera y se agregaran al archivo de primas por ubicación (shapefile)|
+|extraFields|[]|Arreglo de campos que se extraerán de la cartera y se agregarán al archivo de primas por ubicación (shapefile)|
+|newContract|"{file}"|Ruta del archivo del proyecto de Resultados (*.resSisR) que se empleará para el proceso de Combinación de un nuevo negocio|
 |---|---|---|
 
 
@@ -96,6 +97,48 @@ Ejemplo de archivo JSON
 }
 ```
 
+- Cartera Independiente y Colectiva (Simultáneamente)
+
+```sh
+{
+	"Perils":"S",
+	"CutOffDate":"2022-01-01",
+	"Portfolios": [
+		{
+		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Ind.sqlite",
+		"Type": 1
+		},
+		{
+		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Col.sqlite",
+		"Type": 2
+		}
+  	],
+	"ResultsPath":"C:\\ERN\\R_CORE\\resultados",
+	"SystemPath":"C:\\ERN\\R_CORE\\app\\R-Core",
+    "Tr": "0,10,20,50,100,200,250,500,1000,1500"
+}
+```
+
+- Adición de Nuevo Negocio
+
+
+
+```sh
+{
+	"Perils":"S",
+	"CutOffDate":"2022-01-01",
+	"Portfolios": [
+		{
+		"FileName": "C:\\ERN\\R_CORE\\Ejemplos\\EQ_Ind.sqlite",
+		"Type": 1
+		}		
+  	],
+	"ResultsPath":"C:\\ERN\\R_CORE\\resultados",
+	"SystemPath":"C:\\ERN\\R_CORE\\app\\R-Core",
+    "Tr": "0,10,20,50,100,200,250,500,1000,1500",
+	"newContract": "C:\\ERN\\R_CORE\\Ejemplos\\Resultados.resSisR"
+}
+```
 
 # Workflow
 
